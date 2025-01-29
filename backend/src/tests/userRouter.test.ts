@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import request from "supertest";
 import { createTestServer } from "./testServer";
-import { generateToken } from "../helper/jwt";
+import { generateToken } from "../helper/auth/generateToken";
 
 const app = createTestServer();
 

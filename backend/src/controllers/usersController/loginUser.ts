@@ -4,7 +4,7 @@ import { prisma } from "../../prisma";
 import bcrypt from "bcrypt";
 import getUserEmail from "../../helper/db/getUserEmail";
 import { compareWithHash } from "../../helper/hashPassword";
-import { generateToken } from "../../helper/jwt";
+import { generateToken } from "../../helper/auth";
 
 const loginUser = async (
   req: Request,

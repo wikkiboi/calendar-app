@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
 import { prisma } from "../../prisma";
-import { registerSchema, loginSchema } from "../../schemas/user";
-import { generateToken } from "../../helper/jwt";
-
+import { registerSchema } from "../../schemas/user";
 import { NextFunction, Request, Response } from "express";
 import createUser from "../../helper/db/createUser";
+import generateToken from "../../helper/auth/generateToken";
+import { hashPassword } from "../../helper/hashPassword";
 const registerUser = async (
   req: Request,
   res: Response,
@@ -24,7 +24,7 @@ const registerUser = async (
       throw new Error("Email already registered");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = hashPassword(password);
 
     const user = await createUser(name, email, hashedPassword);
 

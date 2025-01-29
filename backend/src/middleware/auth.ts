@@ -1,5 +1,5 @@
 import { isTokenBlacklisted } from "../helper/blacklist";
-import { verifyToken } from "../helper/jwt";
+import { verifyToken } from "../helper/auth/generateToken";
 
 export const authMiddleware = async (
   token?: string

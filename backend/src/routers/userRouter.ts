@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import { prisma } from "../prisma";
 import { registerSchema, loginSchema } from "../schemas/user";
 import jwt from "jsonwebtoken";
-import { generateToken } from "../helper/jwt";
+import { generateToken } from "../helper/auth/generateToken";
 import { blacklistToken } from "../helper/blacklist";
 import { Router } from "express";
 import { loginUser, registerUser } from "../controllers/usersController";
