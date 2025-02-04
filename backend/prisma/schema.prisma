@@ -14,9 +14,9 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
+  id        String   @id @default(uuid())
   email     String   @unique
-  username  String
+  username  String   @unique
   password  String
   createdAt DateTime @default(now())
   events    Event[]
@@ -29,5 +29,5 @@ model Event {
   startDate   DateTime
   endDate     DateTime
   userId      String
-  user        User     @relation(fields: [userId], references: [id])
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
